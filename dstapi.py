@@ -1,3 +1,10 @@
+"""
+Helper class to facilitate working with Statistics Denmark's API. See the
+official API documentation here
+https://www.dst.dk/da/Statistik/brug-statistikken/muligheder-i-statistikbanken/api
+
+Author: Alessandro Tang-Andersen Martinello
+"""
 import requests
 import warnings
 import pandas as pd
@@ -78,7 +85,7 @@ class DstApi:
 
         r = requests.post(self.apiip + "/data", json=params)
         if as_DataFrame:
-            return pd.read_table(StringIO(r.text), sep=';')
+            return pd.read_csv(StringIO(r.text), sep=';', decimal=',')
         else:
             return r
 
