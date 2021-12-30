@@ -10,7 +10,7 @@ class DstApi:
         self.tablename = str(tablename).lower()
         self.tableinfo = None
 
-    def tablesummary(self, verbose=True):
+    def tablesummary(self, verbose=True, language='da'):
         """
         Returns a summary of a published DST table containing the description of
         the table and of the variables according to which the values are
@@ -18,7 +18,7 @@ class DstApi:
         """
         # Get table info from API
         if self.tableinfo is None:
-            self.tableinfo = self._get_tableinfo()
+            self.tableinfo = self._get_tableinfo(language=language)
 
         # Make report
         if verbose:
@@ -28,13 +28,13 @@ class DstApi:
         table = self._wrap_tableinfo_variables(self.tableinfo)
         return table
 
-    def variable_levels(self, varname):
+    def variable_levels(self, varname, language='da'):
         """
         Returns a DataFrame with the possible values of `varname` in the table.
         """
         # Get table info from API
         if self.tableinfo is None:
-            self.tableinfo = self._get_tableinfo()
+            self.tableinfo = self._get_tableinfo(language=language)
 
         try:
             return pd.DataFrame(
@@ -51,7 +51,7 @@ class DstApi:
             )
             return err
 
-    def get_data(self, params=None, as_DataFrame=True, override_warning=False):
+    def get_data(self, params=None, language='da', as_DataFrame=True, override_warning=False):
         """
         Downloads table data according to API call specified in `params`. If
         `params` is None (default), parameters resulting in the download of the
@@ -71,7 +71,7 @@ class DstApi:
             else:
                 answer = "yes"
             if answer.lower() in ["y", "yes"]:
-                params = self._define_base_params()
+                params = self._define_base_params(language=language)
             else:
                 print("Execution aborted")
                 return
@@ -82,14 +82,14 @@ class DstApi:
         else:
             return r
 
-    def _get_tableinfo(self):
+    def _get_tableinfo(self, language='da'):
         tableinfo = self.tableinfo = requests.get(
             self.apiip + "/tableinfo",
-            params={"id": self.tablename, "format": "JSON"},
+            params={"id": self.tablename, "format": "JSON", 'lang': language}
         ).json()
         return tableinfo
 
-    def _define_base_params(self):
+    def _define_base_params(self, language='da'):
         """
         Return a parameter dictionary resulting in the download of an entire
         data table. Use with caution.
@@ -97,7 +97,12 @@ class DstApi:
         ts = self.tablesummary(verbose=False)
 
         variables = [{'code': var, 'values': ['*']} for var in ts['variable name']]
-        params = {'table': 'metrox1', 'format': 'BULK', 'variables': variables}
+        params = {
+            'table': 'metrox1',
+            'format': 'BULK',
+            'lang': language,
+            'variables': variables
+        }
 
         return params
 
