@@ -105,7 +105,7 @@ class DstApi:
 
         variables = [{'code': var, 'values': ['*']} for var in ts['variable name']]
         params = {
-            'table': 'metrox1',
+            'table': self.tablename,
             'format': 'BULK',
             'lang': language,
             'variables': variables
