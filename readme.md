@@ -4,7 +4,7 @@ The scope of this repository is to provide a guide for using [Denmark Statistics
 
 You can find the full guide in [this notebook](https://github.com/alemartinello/dstapi/blob/b7d4e8df6a80822e294be67d62828a505b0ab461/Using%20DSTs%20API%20with%20python.ipynb).
 
-The guide also presents a helper class I wrote to more easily access DST's data, `DstApi`. The class is defined in the python file [`dstapi.py`](https://github.com/alemartinello/dstapi/blob/b7d4e8df6a80822e294be67d62828a505b0ab461/dstapi.py).
+The guide also presents a helper class I wrote to more easily access DST's data, `DstApi`. The class is defined in the python file [`dstapi.py`](dstapi.py).
 
 This class is useful to visualize a table's metadata, as in the example below, and to import data from DST directly into pandas.
 
