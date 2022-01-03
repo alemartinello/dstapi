@@ -2,7 +2,7 @@
 
 The scope of this repository is to provide a guide for using [Denmark Statistics' API](https://www.dst.dk/da/Statistik/brug-statistikken/muligheder-i-statistikbanken/api) using python.
 
-You can find the full guide in [this notebook](Using DSTs API with python.ipynb).
+You can find the full guide in [this notebook](https://github.com/alemartinello/dstapi/blob/master/Using%20DSTs%20API%20with%20python.ipynb).
 
 The guide also presents a helper class I wrote to more easily access DST's data, `DstApi`. The class is defined in the python file [`dstapi.py`](dstapi.py).
 
