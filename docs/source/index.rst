@@ -15,4 +15,4 @@ Contents
 
    installing
    usage
-   api/table_summary
+   api
