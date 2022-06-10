@@ -10,5 +10,3 @@ After that just write
 
 .. autosummary::
    :toctree: generated
-
-   lumache

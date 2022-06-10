@@ -10,9 +10,9 @@ Here you can learn how to use the dstapi. Just click the links below.
 Contents
 --------
 
-.. toctree::
-   :maxdepth: 2
+.. autosummary::
+  .. toctree::
 
-   installing
-   usage
-   api
+     installing
+     usage
+     api

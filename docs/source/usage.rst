@@ -1,11 +1,6 @@
 Using DST's API with Python
 =====
 
-.. _installation:
-
-Using DST's API with Python
-------------
-
 The scope of this repository is to provide a guide for using Denmark Statistics' API using python.
 
 You can find the full guide in this notebook.
