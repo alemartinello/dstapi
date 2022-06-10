@@ -12,6 +12,9 @@ from io import StringIO
 
 
 class DstApi:
+    """
+    Docstring
+    """
     def __init__(self, tablename) -> None:
         self.apiip = "https://api.statbank.dk/v1"
         self.tablename = str(tablename).lower()
