@@ -38,13 +38,13 @@ functions
 ------
 
   Yet to be made
-  
+
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
-.. automodule:: dstapi.py
+.. automodule:: dstapi.main
 
 .. autoclass:: DstApi
     :members:
