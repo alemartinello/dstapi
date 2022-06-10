@@ -45,9 +45,10 @@ Contents:
    :maxdepth: 2
 
 .. automodule:: dstapi
+   :members:
 
 .. autoclass:: DstApi
-    :members:
+   :members:
 
 Indices and tables
 ==================
