@@ -38,5 +38,19 @@ functions
 ------
 
   Yet to be made
-  .. autoclass:: DstApi
+  Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+.. automodule:: dstapi
+ 
+.. autoclass:: DstApi
     :members:
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
