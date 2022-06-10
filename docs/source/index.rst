@@ -44,7 +44,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-.. automodule:: dstapi.main
+.. automodule:: dstapi
 
 .. autoclass:: DstApi
     :members:
