@@ -34,13 +34,7 @@ I hope you'll find this guide useful!
   display(dnkapi.variable_levels("INSTRUMENTS", language ="en"))
 
 
+functions
+------
 
-
-Contents
---------
-
-.. toctree::
-
-   installing
-   usage
-   api
+  Yet to be made
