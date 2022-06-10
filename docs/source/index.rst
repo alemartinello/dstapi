@@ -38,3 +38,5 @@ functions
 ------
 
   Yet to be made
+  .. autoclass:: DstApi
+    :members:
