@@ -3,10 +3,6 @@ Documentation for the dstapi
 
 Here you can learn how to use the dstapi. Just click the links below.
 
-.. note::
-
-   This project is under active development.
-
  How to install dstapi
  ===
 
@@ -32,6 +28,10 @@ Here you can learn how to use the dstapi. Just click the links below.
     dnkapi = DstApi("dnkapi")
     display(dnkapi.tablesummary(langauge="en"))
     display(dnkapi.variable_levels("INSTRUMENTS", language ="en"))
+
+.. note::
+
+   This project is under active development.
 
 
 Contents
