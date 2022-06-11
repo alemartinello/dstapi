@@ -39,10 +39,10 @@ Class DstApi
 
    A class that will be representative for you dst table
 
-   `parameters:    tablename : String`
+   parameters:
    ^^^^^^
-
-                  The name of the table as given on dst.dk
+                  tablename : String
+                     The name of the table as given on dst.dk
 
 
 
