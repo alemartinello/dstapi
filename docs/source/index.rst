@@ -39,8 +39,8 @@ Class DstApi
 
    A class that will be representative for you dst table
 
-   parameters:
-   
+   ###parameters
+
                   tablename : String
                      The name of the table as given on dst.dk
 
@@ -50,16 +50,7 @@ Class DstApi
 
 
 
-Contents:
 
-.. toctree::
-   :maxdepth: 2
-
-.. automodule:: dstapi
-   :members:
-
-.. autoclass:: DstApi
-   :members:
 
 Indices and tables
 ==================
