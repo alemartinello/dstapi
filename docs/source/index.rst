@@ -56,16 +56,4 @@ Class DstApi
                      If True prints table id, description and when it was last updated
 
         **returns**
-            A pandas dataframe with the dst tables data 
-
-
-
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+            A pandas dataframe with the dst tables data
