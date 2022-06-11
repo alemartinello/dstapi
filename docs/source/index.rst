@@ -34,10 +34,21 @@ I hope you'll find this guide useful!
   display(dnkapi.variable_levels("INSTRUMENTS", language ="en"))
 
 
-functions
+Class DstApi
 ------
 
-  Yet to be made
+   A class that will be representative for you dst table
+
+   parameters:   tablename : String
+   ^^^^^^
+
+                  The name of the table as given on dst.dk
+
+
+
+
+
+
 
 Contents:
 
