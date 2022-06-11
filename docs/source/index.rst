@@ -45,7 +45,18 @@ Class DstApi
                      The name of the table as given on dst.dk
 
 
+   **methods**
+      **tablesummary**
+        Returns a summary of a published DST table containing the description of
+        the table and of the variables according to which the values are
+        reported
 
+        **parameters**
+                  verbose : bool
+                     If True prints table id, description and when it was last updated
+
+        **returns**
+            A pandas dataframe with the dst tables data 
 
 
 
