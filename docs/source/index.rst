@@ -59,7 +59,7 @@ Class DstApi
 
 
       **variable_levels**
-         Returns a DataFrame with the possible values of `varname` in the table.
+        Returns a DataFrame with the possible values of `varname` in the table.
 
         **parameters**
                   varname : string
