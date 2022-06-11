@@ -55,7 +55,7 @@ Class DstApi
                   verbose : bool
                      If True prints table id, description and when it was last updated
                   language : string
-                     "da" for danish version, "en" for english verison.
+                     "da" for danish version, "en" for english version.
 
          **returns : DataFrame**
              A DataFrame with information about the dst table
@@ -68,7 +68,7 @@ Class DstApi
                    varname : string
                       name of the variable you want to see the levels of.
                    language : string
-                      "da" for danish version, "en" for english verison.
+                      "da" for danish version, "en" for english version.
 
 
 
