@@ -41,7 +41,7 @@ Class DstApi
 
    **parameters**
 
-                  tablename : String
+                  tablename : string
                      The name of the table as given on dst.dk
 
 
@@ -54,6 +54,9 @@ Class DstApi
         **parameters**
                   verbose : bool
                      If True prints table id, description and when it was last updated
+                  language : string
+                     "da" for danish version, "en" for english verison.
+
 
         **returns**
             A pandas dataframe with the dst tables data
