@@ -8,7 +8,7 @@ Here you can learn how to use the dstapi. Just click the links below.
    This project is under active development.
 
 How to install dstapi
-===
+====
 
 For now download the dstapi.py file, and make sure it is in your working directory.
 After that just write
