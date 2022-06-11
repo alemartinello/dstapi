@@ -57,6 +57,16 @@ Class DstApi
                   language : string
                      "da" for danish version, "en" for english verison.
 
+       **variable_levels**
+         Returns a DataFrame with the possible values of `varname` in the table.
+ 
+         **parameters**
+                   varname : string
+                      name of the variable you want to see the levels of.
+                   language : string
+                      "da" for danish version, "en" for english verison.
+
+
 
         **returns**
-            A pandas dataframe with the dst tables data
+            A list of values the variable can take.
