@@ -7,7 +7,7 @@ setup(name='dstapi',
       author='',
       author_email='',
       license='MIT',
-      packages=['.dstapi.py'],
+      packages=['dstapi'],
       install_requires=[
           'requests', 
           'pandas'
