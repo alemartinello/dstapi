@@ -2,7 +2,6 @@
 Helper class to facilitate working with Statistics Denmark's API. See the
 official API documentation here
 https://www.dst.dk/da/Statistik/brug-statistikken/muligheder-i-statistikbanken/api
-
 Author: Alessandro Tang-Andersen Martinello
 """
 import requests
@@ -63,7 +62,6 @@ class DstApi:
         Downloads table data according to API call specified in `params`. If
         `params` is None (default), parameters resulting in the download of the
         entire data table will be automatically generated, raising a warning.
-
         The function returns a Pandas DataFramse by default. Specify
         `as_DataFrame=False` to obtain the original `requests.Response` object
         """
