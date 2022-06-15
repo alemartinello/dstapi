@@ -1,1 +1,1 @@
-from dstapi.dstapi import *
+from dstapi.dstapi import DstApi
