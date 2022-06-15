@@ -30,7 +30,8 @@ This class is useful to visualize a table's metadata, as in the example below, a
 I hope you'll find this guide useful!
 
 .. code-block:: console
-
+  from dstapi import DstApi
+  
   dnkapi = DstApi("dnkapi")
   display(dnkapi.tablesummary(langauge="en"))
   display(dnkapi.variable_levels("INSTRUMENTS", language ="en"))
