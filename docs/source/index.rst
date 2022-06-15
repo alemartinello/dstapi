@@ -34,7 +34,7 @@ I hope you'll find this guide useful!
   from dstapi import DstApi
   
   dnkapk = DstApi("dnkapk")
-  dnkapk.tablesummary(langauge="en")
+  dnkapk.tablesummary(language="en")
   dnkapk.variable_levels("INSTRUMENTS", language ="en")
 
 
