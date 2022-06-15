@@ -3,18 +3,16 @@
 
 from distutils.core import setup
 
-setup()
-
-#setup(name='dstapi',
-#      version='0.1',
-#      description='',
-#      url='https://github.com/JonasW01ff/dstapi',
-#      author='',
-#      author_email='',
-#      license='MIT',
-#      packages=[],
-#      install_requires=[
-#          'requests', 
-#          'pandas'
-#      ],
-#      ,zip_safe=False)
+setup(name='dstapi',
+      version='0.1',
+      description='',
+      url='https://github.com/JonasW01ff/dstapi',
+      author='',
+      author_email='',
+      license='MIT',
+      packages=[],
+      install_requires=[
+          'requests', 
+          'pandas'
+      ],
+      ,zip_safe=False)
