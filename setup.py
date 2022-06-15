@@ -1,12 +1,15 @@
-#!/usr/bin/env python
-
 from distutils.core import setup
 
-setup(name='Distutils',
-      version='1.0',
-      description='DstApi',
-      author='Unkown',
-      author_email='unkown',
-      url='https://github.com/JonasW01ff/dstapi/',
+setup(name='dstapi',
+      version='0.1',
+      description='',
+      url='https://github.com/JonasW01ff/dstapi/tree/master',
+      author='',
+      author_email='',
+      license='MIT',
       packages=['dstapi'],
-     )
+      install_requires=[
+          'requests', 
+          'pandas'
+      ],
+      zip_safe=False)
