@@ -89,7 +89,7 @@ Class DstApi
 
         **parameters**
                   params : dict
-                     Dictionary with the parametors to pass to the dstapi.
+                     Dictionary with the parameters to pass to the dstapi.
                   language : string
                      "da" for danish version, "en" for english version.
                   as_DataFrame : bool
