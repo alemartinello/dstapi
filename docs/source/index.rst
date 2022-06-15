@@ -11,6 +11,11 @@ For now download the dstapi.py file, and make sure it is in your working directo
 After that just write
 
    import dstapi
+
+Or
+
+   pip install git+https://github.com/JonasW01ff/dstapi.git#subdirectory=dstapi
+
 Using DST's API with Python
 =====
 
