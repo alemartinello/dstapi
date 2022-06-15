@@ -13,5 +13,5 @@ setup(
     version='0.2.0',
     license='MIT',
     description='Email analyzer',
-    long_description=open('README.md').read(),
+    long_description=open('readme.md').read(),
 )
