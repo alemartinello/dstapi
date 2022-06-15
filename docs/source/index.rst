@@ -1,7 +1,7 @@
 Documentation for the dstapi
 ===================================
 
-Here you can learn how to use the dstapi. Just click the links below.
+Here you can learn how to use the dstapi.
 
 
 How to install dstapi
