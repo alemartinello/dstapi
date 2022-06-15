@@ -12,4 +12,4 @@ setup(name='dstapi',
       install_requires=[
           'pandas'
       ],
-      ,zip_safe=False)
+      zip_safe=False)
