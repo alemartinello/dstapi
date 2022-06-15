@@ -3,13 +3,9 @@ from distutils.core import setup
 
 setup(name='dstapi',
       version='0.1',
-      description='',
+      description='A DST Api',
       url='https://github.com/JonasW01ff/dstapi',
-      author='',
-      author_email='',
+      author='Alessandro Tang-Andersen Martinello',
       license='MIT',
       packages=['dstapi'],
-      install_requires=[
-          'pandas'
-      ],
-      zip_safe=False)
+      install_requires=['pandas'])
