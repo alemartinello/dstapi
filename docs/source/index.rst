@@ -33,9 +33,9 @@ I hope you'll find this guide useful!
 
   from dstapi import DstApi
   
-  dnkapi = DstApi("dnkapi")
-  dnkapi.tablesummary(langauge="en")
-  dnkapi.variable_levels("INSTRUMENTS", language ="en")
+  dnkapk = DstApi("dnkapk")
+  dnkapk.tablesummary(langauge="en")
+  dnkapk.variable_levels("INSTRUMENTS", language ="en")
 
 
 Class DstApi
