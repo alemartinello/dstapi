@@ -43,7 +43,7 @@ Class DstApi
 
 
    **methods**
-      **tablesummary**
+      **tablesummary(self, verbose=True, language='da')**
         Returns a summary of a published DST table containing the description of
         the table and of the variables according to which the values are
         reported
@@ -58,7 +58,7 @@ Class DstApi
              A DataFrame with information about the dst table
 
 
-      **variable_levels**
+      **variable_levels(self, varname, language='da')**
         Returns a DataFrame with the possible values of `varname` in the table.
 
         **parameters**
