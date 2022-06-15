@@ -71,3 +71,27 @@ Class DstApi
 
         **returns : DataFrame**
              A DataFrame of values the variable can take.
+         
+      **get_data(self, params=None, language='da', as_DataFrame=True, override_warning=False)**
+        Downloads table data according to API call specified in `params`. If
+        `params` is None (default), parameters resulting in the download of the
+        entire data table will be automatically generated, raising a warning.
+        
+        The function returns a Pandas DataFramse by default. Specify
+        `as_DataFrame=False` to obtain the original `requests.Response` object
+
+        **parameters**
+                  params : dict
+                     Dictionary with the parametors to pass to the dstapi.
+                  language : string
+                     "da" for danish version, "en" for english version.
+                  as_DataFrame : bool
+                     If true gives back a pandas DataFrame; if not, it gives back a `requests.Response` object.
+                  override_warning : bool
+                     If True, it warns you if the param variable is not given.
+
+
+
+        **returns : DataFrame**
+             A DataFrame or a `requests.Response` object of data from dst api.
+
