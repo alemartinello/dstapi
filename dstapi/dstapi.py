@@ -10,7 +10,6 @@ import warnings
 import pandas as pd
 from io import StringIO
 
-
 class DstApi:
     def __init__(self, tablename) -> None:
         self.apiip = "https://api.statbank.dk/v1"
