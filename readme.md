@@ -14,7 +14,7 @@ I hope you'll find this guide useful!
 
 ## Installation
 
-Run `pip install git+https://github.com/NumEconCopenhagen/dstapi`
+Run `pip install git+https://github.com/alemartinello/dstapi`
 
 ## Developer installation
 
