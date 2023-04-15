@@ -17,7 +17,7 @@ class DstApi:
         self.tablename = str(tablename).lower()
         self._tableinfo = None
 
-    def tablesummary(self, verbose=True, language="da"):
+    def tablesummary(self, verbose=True, language="da") -> pd.DataFrame:
         """
         Returns a summary of a published DST table containing the description of
         the table and of the variables according to which the values are
@@ -35,9 +35,22 @@ class DstApi:
         table = self._wrap_tableinfo_variables(self._tableinfo)
         return table
 
-    def variable_levels(self, varname, language="da"):
+    def variable_levels(self, varname, language="da") -> pd.DataFrame:
         """
         Returns a DataFrame with the possible values of `varname` in the table.
+        Useful to define query parameters via the method `define_base_params`.
+
+        Parameters:
+        ----------
+        varname : str        The name of the variable in the DST table to
+        tabulate
+
+        language : str       The language for the variable labels (default: "da", Danish).
+        Provide "en" for english descriptions when available
+        
+        Returns:
+        ----------
+        A DataFrame with the possible values of `varname` in the DST table
         """
         # Get table info from API
         if self._tableinfo is None:
@@ -60,14 +73,30 @@ class DstApi:
 
     def get_data(
         self, params=None, language="da", as_DataFrame=True, override_warning=False
-    ):
+    ) -> pd.DataFrame:
         """
         Downloads table data according to API call specified in `params`. If
         `params` is None (default), parameters resulting in the download of the
         entire data table will be automatically generated, raising a warning.
 
-        The function returns a Pandas DataFramse by default. Specify
-        `as_DataFrame=False` to obtain the original `requests.Response` object
+        The function returns a Pandas DataFrame by default. 
+
+        Parameters:
+        ----------
+        params : dict, optional A dictionary containing the parameters for the
+        API query. These parameters control the selection of the table to
+        download, and are crucial to avoid dowloading excessively large tables.
+        The helper method `define_base_params` can be used to define the
+        parameter structure for downloading the full table. From this parameter
+        structure a user can restrict the query by selecting only the required
+        values of selection variables (see `variable_levels` method).
+
+        language : str, optional The language for the variable labels (default:
+        "da", Danish).
+
+        as_DataFrame : bool, optional If `True`, the method will return a
+        pd.DataFrame. Specify `as_DataFrame=False` to obtain the original
+        `requests.Response` object.
         """
         if params is None:
             if override_warning is False:
@@ -94,14 +123,14 @@ class DstApi:
         else:
             return r
 
-    def _get_tableinfo(self, language="da"):
+    def _get_tableinfo(self, language="da") -> dict:
         tableinfo = self._tableinfo = requests.get(
             self.apiip + "/tableinfo",
             params={"id": self.tablename, "format": "JSON", "lang": language},
         ).json()
         return tableinfo
 
-    def _define_base_params(self, language="da", warn=True):
+    def _define_base_params(self, language="da") -> dict:
         """
         Return a parameter dictionary resulting in the download of an entire
         data table. Use with caution.
@@ -118,7 +147,7 @@ class DstApi:
 
         return params
 
-    def define_base_params(self, language="da"):
+    def define_base_params(self, language="da") -> dict:
         """
         Returns a parameter dictionary resulting in the download of an entire
         data table.
@@ -126,7 +155,7 @@ class DstApi:
         return self._define_base_params(language=language)
 
     @staticmethod
-    def _wrap_tableinfo_variables(tiresponse):
+    def _wrap_tableinfo_variables(tiresponse) -> pd.DataFrame:
         toplist = []
         for var in tiresponse["variables"]:
             vallist = [var["id"]]
