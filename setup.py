@@ -6,7 +6,7 @@ with open('requirements.txt') as f:
 
 setuptools.setup(
     name='dstapi',
-    version='0.1',
+    version='0.2',
     packages=setuptools.find_packages(),
     install_requires=requirements
 )
