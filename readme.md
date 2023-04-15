@@ -18,6 +18,6 @@ Run `pip install git+https://github.com/alemartinello/dstapi`
 
 ## Developer installation
 
-1. Download this repository
+1. Clone this repository
 2. Locate folder in terminal
-3. Run `pip install -e .`
+3. Run `pip install -e .` in your local environment

@@ -10,41 +10,42 @@ import warnings
 import pandas as pd
 from io import StringIO
 
+
 class DstApi:
     def __init__(self, tablename) -> None:
         self.apiip = "https://api.statbank.dk/v1"
         self.tablename = str(tablename).lower()
-        self.tableinfo = None
+        self._tableinfo = None
 
-    def tablesummary(self, verbose=True, language='da'):
+    def tablesummary(self, verbose=True, language="da"):
         """
         Returns a summary of a published DST table containing the description of
         the table and of the variables according to which the values are
         reported
         """
         # Get table info from API
-        if self.tableinfo is None:
-            self.tableinfo = self._get_tableinfo(language=language)
+        if self._tableinfo is None:
+            self._tableinfo = self._get_tableinfo(language=language)
 
         # Make report
         if verbose:
-            print(f"Table {self.tableinfo['id']}: {self.tableinfo['description']}")
-            print(f"Last update: {self.tableinfo['updated']}")
+            print(f"Table {self._tableinfo['id']}: {self._tableinfo['description']}")
+            print(f"Last update: {self._tableinfo['updated']}")
 
-        table = self._wrap_tableinfo_variables(self.tableinfo)
+        table = self._wrap_tableinfo_variables(self._tableinfo)
         return table
 
-    def variable_levels(self, varname, language='da'):
+    def variable_levels(self, varname, language="da"):
         """
         Returns a DataFrame with the possible values of `varname` in the table.
         """
         # Get table info from API
-        if self.tableinfo is None:
-            self.tableinfo = self._get_tableinfo(language=language)
+        if self._tableinfo is None:
+            self._tableinfo = self._get_tableinfo(language=language)
 
         try:
             return pd.DataFrame(
-                [i for i in self.tableinfo["variables"] if i["id"] == varname][0][
+                [i for i in self._tableinfo["variables"] if i["id"] == varname][0][
                     "values"
                 ]
             )
@@ -57,7 +58,9 @@ class DstApi:
             )
             return err
 
-    def get_data(self, params=None, language='da', as_DataFrame=True, override_warning=False):
+    def get_data(
+        self, params=None, language="da", as_DataFrame=True, override_warning=False
+    ):
         """
         Downloads table data according to API call specified in `params`. If
         `params` is None (default), parameters resulting in the download of the
@@ -68,11 +71,14 @@ class DstApi:
         """
         if params is None:
             if override_warning is False:
-                warnings.warn((
-                    "API call parameters are not specified. Parameters resulting "
-                    "in the download of the entire table will be automatically generated. "
-                    "This can result in massive data downloads."
-                ), stacklevel=2)
+                warnings.warn(
+                    (
+                        "API call parameters are not specified. Parameters resulting "
+                        "in the download of the entire table will be automatically generated. "
+                        "This can result in massive data downloads."
+                    ),
+                    stacklevel=2,
+                )
                 answer = input("Continue (Y/Yes)?")
             else:
                 answer = "yes"
@@ -84,33 +90,40 @@ class DstApi:
 
         r = requests.post(self.apiip + "/data", json=params)
         if as_DataFrame:
-            return pd.read_csv(StringIO(r.text), sep=';', decimal=',')
+            return pd.read_csv(StringIO(r.text), sep=";", decimal=",")
         else:
             return r
 
-    def _get_tableinfo(self, language='da'):
-        tableinfo = self.tableinfo = requests.get(
+    def _get_tableinfo(self, language="da"):
+        tableinfo = self._tableinfo = requests.get(
             self.apiip + "/tableinfo",
-            params={"id": self.tablename, "format": "JSON", 'lang': language}
+            params={"id": self.tablename, "format": "JSON", "lang": language},
         ).json()
         return tableinfo
 
-    def _define_base_params(self, language='da'):
+    def _define_base_params(self, language="da", warn=True):
         """
         Return a parameter dictionary resulting in the download of an entire
         data table. Use with caution.
         """
         ts = self.tablesummary(verbose=False)
 
-        variables = [{'code': var, 'values': ['*']} for var in ts['variable name']]
+        variables = [{"code": var, "values": ["*"]} for var in ts["variable name"]]
         params = {
-            'table': self.tablename,
-            'format': 'BULK',
-            'lang': language,
-            'variables': variables
+            "table": self.tablename,
+            "format": "BULK",
+            "lang": language,
+            "variables": variables,
         }
 
         return params
+
+    def define_base_params(self, language="da"):
+        """
+        Returns a parameter dictionary resulting in the download of an entire
+        data table.
+        """
+        return self._define_base_params(language=language)
 
     @staticmethod
     def _wrap_tableinfo_variables(tiresponse):
